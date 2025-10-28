@@ -18,21 +18,23 @@
             </Grid>
 
         </DataTemplate>
+
+        <DataTemplate x:Key="ProductHeaderTemplate">
+            <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
+                <Label Text="Name" Grid.Column="0" />
+                <Label Text="Price" Grid.Column="1" />
+                <Label Text="Qty" Grid.Column="2" />
+                <Label Text="Total" Grid.Column="3" />
+            </Grid>
+        </DataTemplate>
     </ContentPage.Resources>
     
     <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Products}" ItemTemplate="{StaticResource ProductTemplate}" >
+        <CollectionView ItemsSource="{Binding Products}" 
+                        ItemTemplate="{StaticResource ProductTemplate}" 
+                        HeaderTemplate="{StaticResource ProductHeaderTemplate}" >
 
-            <CollectionView.Header>
-                <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
-                    <Label Text="Name" Grid.Column="0" />
-                    <Label Text="Price" Grid.Column="1" />
-                    <Label Text="Qty" Grid.Column="2" />
-                    <Label Text="Total" Grid.Column="3" />
-                </Grid>
-
-            </CollectionView.Header>
             
         </CollectionView>
 

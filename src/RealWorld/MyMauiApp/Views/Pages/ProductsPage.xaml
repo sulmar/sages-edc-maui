@@ -6,33 +6,34 @@
              x:Class="MyMauiApp.Views.Pages.ProductsPage"
              x:DataType="{x:Type pm:ProductsPageModel}"
              Title="ProductsPage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="ProductTemplate" x:DataType="{x:Type m:Product}">
+
+            <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
+                <Label Text="{Binding Name}" Grid.Column="0" />
+                <Label Text="{Binding Price}" Grid.Column="1" />
+                <Label Text="{Binding Quantity}" Grid.Column="2" />
+                <Label Text="{Binding TotalAmount}" Grid.Column="3" />
+            </Grid>
+
+        </DataTemplate>
+    </ContentPage.Resources>
+    
     <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Products}" >
+        <CollectionView ItemsSource="{Binding Products}" ItemTemplate="{StaticResource ProductTemplate}" >
 
             <CollectionView.Header>
-                <!--<Label Text="Lista produktów" />-->
-                <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto">
+                <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
                     <Label Text="Name" Grid.Column="0" />
                     <Label Text="Price" Grid.Column="1" />
                     <Label Text="Qty" Grid.Column="2" />
+                    <Label Text="Total" Grid.Column="3" />
                 </Grid>
 
             </CollectionView.Header>
             
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type m:Product}">
-
-                    <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto">
-                        <Label Text="{Binding Name}" Grid.Column="0" />
-                        <Label Text="{Binding Price}" Grid.Column="1" />
-                        <Label Text="{Binding Quantity}" Grid.Column="2" />
-                    </Grid>
-                    
-                    
-                    
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
         </CollectionView>
 
     </VerticalStackLayout>

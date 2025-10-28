@@ -2,12 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pm="clr-namespace:MyMauiApp.PageModels"
+             xmlns:m="clr-namespace:Models;assembly=Models"
              x:Class="MyMauiApp.Views.Pages.ProductsPage"
              x:DataType="{x:Type pm:ProductsPageModel}"
              Title="ProductsPage">
     <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Products}"  />
+        <CollectionView ItemsSource="{Binding Products}" >
+
+            <CollectionView.Header>
+                <!--<Label Text="Lista produktów" />-->
+                <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto">
+                    <Label Text="Name" Grid.Column="0" />
+                    <Label Text="Price" Grid.Column="1" />
+                    <Label Text="Qty" Grid.Column="2" />
+                </Grid>
+
+            </CollectionView.Header>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type m:Product}">
+
+                    <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto">
+                        <Label Text="{Binding Name}" Grid.Column="0" />
+                        <Label Text="{Binding Price}" Grid.Column="1" />
+                        <Label Text="{Binding Quantity}" Grid.Column="2" />
+                    </Grid>
+                    
+                    
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>

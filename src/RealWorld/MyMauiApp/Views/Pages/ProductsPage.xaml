@@ -7,7 +7,7 @@
              Title="ProductsPage">
     <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Products}" />
+        <CollectionView ItemsSource="{Binding Products}"  />
 
     </VerticalStackLayout>
 </ContentPage>

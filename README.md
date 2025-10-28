@@ -18,3 +18,18 @@ Do rozpoczęcia tego kursu potrzebujesz następujących rzeczy:
 1. [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 2. Visual Studio 2022 lub Visual Studio Code
 3. Podstawowa znajomość C# i programowania obiektowego
+
+## Struktura projektu
+
+Projekt jest zorganizowany w dwóch głównych sekcjach:
+
+```
+vavatech-edc-maui/
+├── docs/                          # Dokumentacja szkolenia
+│   ├── drafts.bmpr                # Diagramy i schematy
+│   └── maui.pdf                   # Materiały szkoleniowe
+├── src/                           # Kod źródłowy
+│   ├── Fundamentals/              # Podstawowe koncepcje
+│   └── RealWorld/                 # Praktyczne przykłady
+└── README.md                      # Ten plik
+```

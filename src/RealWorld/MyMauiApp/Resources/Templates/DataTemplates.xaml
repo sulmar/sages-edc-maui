@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:m="clr-namespace:Models;assembly=Models"
+             x:Class="MyMauiApp.Resources.Templates.DataTemplates">
+
+    <DataTemplate x:Key="ProductTemplate" x:DataType="{x:Type m:Product}">
+        <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
+            <Label Text="{Binding Name}" Grid.Column="0" />
+            <Label Text="{Binding Price}" Grid.Column="1" />
+            <Label Text="{Binding Quantity}" Grid.Column="2" />
+            <Label Text="{Binding TotalAmount}" Grid.Column="3" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ProductHeaderTemplate">
+        <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
+            <Label Text="Name" Grid.Column="0" />
+            <Label Text="Price" Grid.Column="1" />
+            <Label Text="Qty" Grid.Column="2" />
+            <Label Text="Total" Grid.Column="3" />
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

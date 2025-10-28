@@ -10,8 +10,8 @@
 
         <CollectionView ItemsSource="{Binding Products}" 
                         ItemTemplate="{StaticResource ProductTemplate}" 
-                        HeaderTemplate="{StaticResource ProductHeaderTemplate}" >
-        </CollectionView>
+                        HeaderTemplate="{StaticResource ProductHeaderTemplate}" />
+
 
     </VerticalStackLayout>
 </ContentPage>

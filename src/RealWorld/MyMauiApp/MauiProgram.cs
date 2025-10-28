@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using MyMauiApp.Abstractions;
+using MyMauiApp.PageModels;
+using MyMauiApp.Services;
 
 namespace MyMauiApp
 {
@@ -14,6 +17,9 @@ namespace MyMauiApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddTransient<ProductsPageModel>();
+            builder.Services.AddTransient<IProductService, FakeProductService>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Models;
 using MyMauiApp.Abstractions;
 using System;
@@ -56,5 +57,13 @@ public partial class ProductDetailPageModel : BasePageModel, IQueryAttributable
     private void LoadData(int id)
     {
         Product = productService.Get(id);
+    }
+
+    [RelayCommand]
+    private void Reserve()
+    {
+        Product.Available--;
+
+        // TODO: Wyswietl okno dialogowe
     }
 }

@@ -10,5 +10,7 @@
             Text="{Binding Product.Name}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Text="Zarezerwuj" Command="{Binding ReserveCommand}" />
     </VerticalStackLayout>
 </ContentPage>

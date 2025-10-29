@@ -22,7 +22,7 @@
 
             <Border.GestureRecognizers>
                 <TapGestureRecognizer
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type pm:ProductsPageModel}}, Path=NavigateToProductCommand}"
+                    Command="{Binding Path=NavigateToProductCommand, Source={RelativeSource AncestorType={x:Type pm:ProductsPageModel}}}"
                     CommandParameter="{Binding}"
                     />
             </Border.GestureRecognizers>

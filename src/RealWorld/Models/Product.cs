@@ -7,4 +7,5 @@ public class Product : BaseEntity
     public int Quantity { get; set; }
     public decimal TotalAmount => Price * Quantity;
     public bool Archived { get; set; }
+    public int Available { get; set; }
 }

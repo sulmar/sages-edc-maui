@@ -8,13 +8,13 @@ using System.Xml.Linq;
 namespace Models;
 
 // Wzorzec Projektowy Command (Komenda)
-public interface ICommand
+public interface IMyCommand
 {
     void Execute();
     bool CanExecute();
 }
 
-public class ScanCommand : ICommand
+public class ScanCommand : IMyCommand
 {
     public bool CanExecute()
     {
@@ -27,7 +27,7 @@ public class ScanCommand : ICommand
     }
 }
 
-public class PrintCommand : ICommand
+public class PrintCommand : IMyCommand
 {
     private readonly string barcode;
     private readonly BarcodePrinter printer;
@@ -83,7 +83,7 @@ public class PrinterManager
         PrintCommand command3 = new PrintCommand("222", printer);
         ScanCommand command4 = new ScanCommand();
 
-        Queue<ICommand> commands = new Queue<ICommand>();
+        Queue<IMyCommand> commands = new Queue<IMyCommand>();
 
         commands.Enqueue(command1);
         commands.Enqueue(command2);
@@ -92,7 +92,7 @@ public class PrinterManager
 
         while (commands.Count > 0)
         {
-            ICommand command = commands.Dequeue();
+            IMyCommand command = commands.Dequeue();
 
             if (command.CanExecute())
                 command.Execute();

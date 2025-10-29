@@ -6,12 +6,17 @@
              x:DataType="{x:Type pm:ProductsPageModel}"
              Title="ProductsPage">
 
-    <VerticalStackLayout>
+    <ScrollView>
 
-        <CollectionView ItemsSource="{Binding Products}" 
-                        ItemTemplate="{StaticResource ProductItemTemplate}" 
-                        HeaderTemplate="{StaticResource ProductHeaderTemplate}" />
+        <VerticalStackLayout>
+
+            <CollectionView ItemsSource="{Binding Products}"                             
+                        HeaderTemplate="{StaticResource ProductHeaderTemplate}"
+                        ItemTemplate="{StaticResource ProductItemTemplate}"  />
 
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+
+    </ScrollView>
+
 </ContentPage>

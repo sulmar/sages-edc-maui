@@ -2,24 +2,32 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:m="clr-namespace:Models;assembly=Models"
+            xmlns:pm="clr-namespace:MyMauiApp.PageModels"
              x:Class="MyMauiApp.Resources.Templates.DataTemplates">
 
     <DataTemplate x:Key="ProductHeaderTemplate">
-        <HorizontalStackLayout Padding="10">
+        <Grid ColumnDefinitions="*,Auto" Padding="10">
             <Label Text="Name" Grid.Column="0" />
-            <Label Text="Price" Grid.Column="1" />
-            <Label Text="Qty" Grid.Column="2" />
-            <Label Text="Total" Grid.Column="3" />
-        </HorizontalStackLayout>
+            <Label Text="Available" Grid.Column="1" />
+        </Grid>
     </DataTemplate>
     
     <DataTemplate x:Key="ProductItemTemplate" x:DataType="{x:Type m:Product}">
-        <HorizontalStackLayout Padding="10">
-            <Label Text="{Binding Name}" Grid.Column="0" />
-            <Label Text="{Binding Price}" Grid.Column="1" />
-            <Label Text="{Binding Quantity}" Grid.Column="2" />
-            <Label Text="{Binding TotalAmount}" Grid.Column="3" />
-        </HorizontalStackLayout>
+
+        <Border Margin="5" >
+            <Grid ColumnDefinitions="*,Auto" Padding="10">
+                <Label Text="{Binding Name}" Grid.Column="0" />
+                <Label Text="{Binding Available}" Grid.Column="1" />
+            </Grid>
+
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type pm:ProductsPageModel}}, Path=NavigateToProductCommand}"
+                    CommandParameter="{Binding}"
+                    />
+            </Border.GestureRecognizers>
+        </Border>
+        
     </DataTemplate>
 
   

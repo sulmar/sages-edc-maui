@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Bogus;
+using Microsoft.Extensions.Logging;
+using Models;
 using MyMauiApp.Abstractions;
 using MyMauiApp.PageModels;
 using MyMauiApp.Services;
@@ -21,9 +23,10 @@ namespace MyMauiApp
             // Rejestracja uslug w konterzene wstrzykiwania zaleznosci (Dependency Injection)
             builder.Services.AddTransient<ProductsPageModel>();
             builder.Services.AddTransient<IProductService, FakeProductService>();
+            builder.Services.AddTransient<Faker<Product>, ProductFaker>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

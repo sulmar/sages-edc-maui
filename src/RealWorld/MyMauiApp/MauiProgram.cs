@@ -18,6 +18,7 @@ namespace MyMauiApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // Rejestracja uslug w konterzene wstrzykiwania zaleznosci (Dependency Injection)
             builder.Services.AddTransient<ProductsPageModel>();
             builder.Services.AddTransient<IProductService, FakeProductService>();
 

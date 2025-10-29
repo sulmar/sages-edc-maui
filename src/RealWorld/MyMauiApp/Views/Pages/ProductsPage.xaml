@@ -9,7 +9,7 @@
     <VerticalStackLayout>
 
         <CollectionView ItemsSource="{Binding Products}" 
-                        ItemTemplate="{StaticResource ProductTemplate}" 
+                        ItemTemplate="{StaticResource ProductItemTemplate}" 
                         HeaderTemplate="{StaticResource ProductHeaderTemplate}" />
 
 

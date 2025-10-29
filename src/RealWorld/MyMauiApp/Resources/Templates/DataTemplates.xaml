@@ -4,23 +4,25 @@
             xmlns:m="clr-namespace:Models;assembly=Models"
              x:Class="MyMauiApp.Resources.Templates.DataTemplates">
 
-    <DataTemplate x:Key="ProductTemplate" x:DataType="{x:Type m:Product}">
-        <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
-            <Label Text="{Binding Name}" Grid.Column="0" />
-            <Label Text="{Binding Price}" Grid.Column="1" />
-            <Label Text="{Binding Quantity}" Grid.Column="2" />
-            <Label Text="{Binding TotalAmount}" Grid.Column="3" />
-        </Grid>
-    </DataTemplate>
-
     <DataTemplate x:Key="ProductHeaderTemplate">
-        <Grid Padding="10" ColumnSpacing="10" ColumnDefinitions="2*,*,Auto,Auto">
+        <HorizontalStackLayout Padding="10">
             <Label Text="Name" Grid.Column="0" />
             <Label Text="Price" Grid.Column="1" />
             <Label Text="Qty" Grid.Column="2" />
             <Label Text="Total" Grid.Column="3" />
-        </Grid>
+        </HorizontalStackLayout>
     </DataTemplate>
+    
+    <DataTemplate x:Key="ProductItemTemplate" x:DataType="{x:Type m:Product}">
+        <HorizontalStackLayout Padding="10">
+            <Label Text="{Binding Name}" Grid.Column="0" />
+            <Label Text="{Binding Price}" Grid.Column="1" />
+            <Label Text="{Binding Quantity}" Grid.Column="2" />
+            <Label Text="{Binding TotalAmount}" Grid.Column="3" />
+        </HorizontalStackLayout>
+    </DataTemplate>
+
+  
 
 
 </ResourceDictionary>

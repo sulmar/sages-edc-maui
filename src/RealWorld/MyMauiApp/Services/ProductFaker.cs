@@ -11,6 +11,7 @@ public class ProductFaker : Faker<Product>
 {
     public ProductFaker()
     {
+        UseSeed(0);
         StrictMode(true);
         RuleFor(p => p.Id, f => f.IndexFaker);
         RuleFor(p => p.Name, f => f.Commerce.ProductName());

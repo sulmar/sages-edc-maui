@@ -21,7 +21,7 @@ public class FakeProductService : IProductService
 
     public Product Get(int id)
     {
-        throw new NotImplementedException();
+        return products.Single(p => p.Id == id);
     }
 
     public List<Product> GetAll()

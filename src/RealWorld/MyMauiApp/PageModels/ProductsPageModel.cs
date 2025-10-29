@@ -1,33 +1,24 @@
-﻿using Models;
+﻿using CommunityToolkit.Mvvm.Input;
+using Models;
 using MyMauiApp.Abstractions;
 using MyMauiApp.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace MyMauiApp.PageModels;
 
-public class ProductsPageModel : BasePageModel
+public partial class ProductsPageModel : BasePageModel
 {
     public List<Product> Products { get; set; }
     public Product SelectedProduct { get; set; }
 
-
-    public ICommand NavigateToProductCommand { get; }
-
     public ProductsPageModel(IProductService productService)
     {
         Products = productService.GetAll();
-
-        NavigateToProductCommand = new RelayCommand<Product>(NavigateToProduct);
     }
 
-    public void NavigateToProduct(Product product)
+    [RelayCommand]
+    private async Task NavigateToProduct(Product product)
     {
-        // TODO: display ProductPage
+        await Shell.Current.GoToAsync($"product?id={product.Id}"); // Query
     }
 
     public void MakeReservation()

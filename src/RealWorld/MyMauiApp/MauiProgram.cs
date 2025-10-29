@@ -1,9 +1,11 @@
 ﻿using Bogus;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using Models;
 using MyMauiApp.Abstractions;
 using MyMauiApp.PageModels;
 using MyMauiApp.Services;
+using MyMauiApp.Views.Pages;
 
 namespace MyMauiApp
 {
@@ -14,6 +16,8 @@ namespace MyMauiApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                // Initialize the .NET MAUI Community Toolkit by adding the below line of code
+                .UseMauiCommunityToolkit() // dotnet add package CommunityToolkit.Maui
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -24,6 +28,12 @@ namespace MyMauiApp
             builder.Services.AddTransient<ProductsPageModel>();
             builder.Services.AddTransient<IProductService, FakeProductService>();
             builder.Services.AddTransient<Faker<Product>, ProductFaker>();
+
+            // MVVM Toolkit (CommunityToolkit.Mvvm)
+
+            // Routing 
+            // Rejestracja trasy
+            builder.Services.AddTransientWithShellRoute<ProductDetailPage, ProductDetailPageModel>("product");
 
 #if DEBUG
             builder.Logging.AddDebug();

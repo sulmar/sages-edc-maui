@@ -27,6 +27,7 @@
 
             <Button Text="Load Data" Command="{Binding LoadDataCommand}" ></Button>
 
+         
 
             <Button Text="Click me!">
                 <Button.Behaviors>
@@ -35,7 +36,10 @@
                 
             </Button>
             
-            </VerticalStackLayout>
+            <Button Text="Reserve" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            
+            
+        </VerticalStackLayout>
 
     </ScrollView>
 

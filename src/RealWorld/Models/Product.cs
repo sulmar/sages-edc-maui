@@ -22,4 +22,8 @@ public class Product : BaseEntity
             OnPropertyChanged(nameof(Available));
         }
     }
+
+    public const int Limit = 25;
+
+    public bool IsBelowLimit => Available < Limit;
 }

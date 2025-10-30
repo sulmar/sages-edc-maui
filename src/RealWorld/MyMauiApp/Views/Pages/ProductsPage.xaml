@@ -27,18 +27,15 @@
 
             <Button Text="Load Data" Command="{Binding LoadDataCommand}" ></Button>
 
-         
-
             <Button Text="Click me!">
                 <Button.Behaviors>
                     <b:LogBehavior Color="Green" />
                 </Button.Behaviors>
                 
             </Button>
-            
+
             <Button Text="Reserve" Style="{StaticResource PrimaryButtonStyle}"></Button>
-            
-            
+
         </VerticalStackLayout>
 
     </ScrollView>

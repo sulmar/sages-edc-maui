@@ -15,6 +15,20 @@
 
     <Style x:Key="PrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
         <Setter Property="Background" Value="Green" />
+
+        <Setter Property="FontSize">
+            <Setter.Value>  
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android">
+                        <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="22" />
+                    </On>
+
+                    <On Platform="iOS">
+                        <OnIdiom x:TypeArguments="x:Double" Phone="17" Tablet="24" />
+                    </On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

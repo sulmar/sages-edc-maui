@@ -1,13 +1,18 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Models;
 using MyMauiApp.Abstractions;
-using MyMauiApp.Commands;   
+using MyMauiApp.Commands;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace MyMauiApp.PageModels;
 
 public partial class ProductsPageModel : BasePageModel
 {
-    public List<Product> Products { get; set; }
+    [ObservableProperty]
+    private ObservableCollection<Product> products = [];
+
     public Product SelectedProduct { get; set; }
 
     private readonly IProductService _productService;
@@ -15,6 +20,7 @@ public partial class ProductsPageModel : BasePageModel
     public ProductsPageModel(IProductService productService)
     {
         _productService = productService;
+        
     }
 
     [RelayCommand]
@@ -30,10 +36,32 @@ public partial class ProductsPageModel : BasePageModel
         throw new NotImplementedException();
         
     }
+    
 
     [RelayCommand]
     private async Task LoadData()
     {
-        Products = await _productService.GetAllAsync();
+        // await Shell.Current.DisplayAlert("Debug", "LoadData", "OK");
+
+        //  Products = await _productService.GetAllAsync();
+
+        try
+        {
+            var products = await _productService.GetAllAsync();
+
+            Products.Clear();
+
+            foreach (var product in products)
+            {
+                Products.Add(product);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+        }
+
     }
+
 }

@@ -10,4 +10,15 @@ public partial class ProductsPage : ContentPage
 
 		this.BindingContext = pageModel;
 	}
+
+    private void ContentPage_Appearing(object sender, EventArgs e)
+    {
+
+    }
+
+    //private void VerticalStackLayout_Loaded(object sender, EventArgs e)
+    //{
+    //    var vm = BindingContext as ProductDetailPageModel;
+       
+    //}
 }

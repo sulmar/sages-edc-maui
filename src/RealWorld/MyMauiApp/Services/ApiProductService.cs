@@ -23,14 +23,14 @@ public class ApiProductService : IProductService
         throw new NotImplementedException();
     }
 
-    public Task<List<Product>> GetAllAsync()
+    public async Task<List<Product>> GetAllAsync()
     {
-        return _http.GetFromJsonAsync<List<Product>>("api/products");
+        return await _http.GetFromJsonAsync<List<Product>>("api/products");
     }
 
-    public Task<Product> GetAsync(int id)
+    public async Task<Product> GetAsync(int id)
     {
-        return _http.GetFromJsonAsync<Product>($"api/products/{id}");
+        return await _http.GetFromJsonAsync<Product>($"api/products/{id}");
     }
 
     public List<Product> GetByColor(string color)

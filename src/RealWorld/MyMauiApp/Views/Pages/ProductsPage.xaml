@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:pm="clr-namespace:MyMauiApp.PageModels"         
+             xmlns:b="clr-namespace:MyMauiApp.Behaviors"
              x:Class="MyMauiApp.Views.Pages.ProductsPage"             
-             x:DataType="{x:Type pm:ProductsPageModel}"                  
+             x:DataType="{x:Type pm:ProductsPageModel}"                 
              Title="ProductsPage">
 
     <!-- Wywoluje LoadDataCommand przy pojawieniu sie strony (zdarzenie Appearing) -->
@@ -12,16 +13,29 @@
         <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadDataCommand}" />
     </ContentPage.Behaviors>
 
+
     <ScrollView>
 
         <VerticalStackLayout>
 
+          
+
             <CollectionView ItemsSource="{Binding Products}"                             
-                        HeaderTemplate="{StaticResource ProductHeaderTemplate}"
-                        ItemTemplate="{StaticResource ProductItemTemplate}"  />
+                            HeaderTemplate="{StaticResource ProductHeaderTemplate}"
+                            ItemTemplate="{StaticResource ProductItemTemplate}"  />
 
 
-        </VerticalStackLayout>
+            <Button Text="Load Data" Command="{Binding LoadDataCommand}" ></Button>
+
+
+            <Button Text="Click me!">
+                <Button.Behaviors>
+                    <b:LogBehavior Color="Green" />
+                </Button.Behaviors>
+                
+            </Button>
+            
+            </VerticalStackLayout>
 
     </ScrollView>
 

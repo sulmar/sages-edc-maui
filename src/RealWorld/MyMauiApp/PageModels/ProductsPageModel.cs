@@ -10,9 +10,11 @@ public partial class ProductsPageModel : BasePageModel
     public List<Product> Products { get; set; }
     public Product SelectedProduct { get; set; }
 
+    private readonly IProductService _productService;
+
     public ProductsPageModel(IProductService productService)
     {
-        Products = productService.GetAll();
+        _productService = productService;
     }
 
     [RelayCommand]
@@ -26,5 +28,12 @@ public partial class ProductsPageModel : BasePageModel
         Console.WriteLine("making...");
 
         throw new NotImplementedException();
+        
+    }
+
+    [RelayCommand]
+    private async Task LoadData()
+    {
+        Products = await _productService.GetAllAsync();
     }
 }

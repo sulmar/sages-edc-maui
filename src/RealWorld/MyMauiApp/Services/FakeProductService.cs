@@ -29,6 +29,16 @@ public class FakeProductService : IProductService
         return products;
     }
 
+    public Task<List<Product>> GetAllAsync()
+    {
+        return Task.FromResult(products);
+    }
+
+    public Task<Product> GetAsync(int id)
+    {
+       return Task.FromResult(products.Single(p => p.Id == id));
+    }
+
     public List<Product> GetByColor(string color)
     {
         throw new NotImplementedException();

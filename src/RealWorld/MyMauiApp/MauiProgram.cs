@@ -26,8 +26,13 @@ namespace MyMauiApp
 
             // Rejestracja uslug w konterzene wstrzykiwania zaleznosci (Dependency Injection)
             builder.Services.AddTransient<ProductsPageModel>();
-            builder.Services.AddSingleton<IProductService, FakeProductService>();
-            builder.Services.AddSingleton<Faker<Product>, ProductFaker>();
+
+            // dotnet add package Microsoft.Extensions.Http
+            builder.Services.AddHttpClient<IProductService, ApiProductService>(client => client.BaseAddress = new Uri("https://localhost:7199"));
+
+            // Fakers
+            //builder.Services.AddSingleton<IProductService, FakeProductService>();
+            //builder.Services.AddSingleton<Faker<Product>, ProductFaker>();
 
             // MVVM Toolkit (CommunityToolkit.Mvvm)
 

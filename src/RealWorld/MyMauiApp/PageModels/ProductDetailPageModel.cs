@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace MyMauiApp.PageModels;
 
-// [QueryProperty(nameof(productId), "id")]
-public partial class ProductDetailPageModel : BasePageModel, IQueryAttributable
+[QueryProperty(nameof(ProductId), "id")]
+public partial class ProductDetailPageModel : BasePageModel
 {
 
     [ObservableProperty]
@@ -23,37 +23,14 @@ public partial class ProductDetailPageModel : BasePageModel, IQueryAttributable
         this.productService = productService;
     }
 
-    // backfield
-    //int productId;
-
-    // Manual
-    //public int ProductId
-    //{
-    //    get {  return productId; }
-    //    set { 
-    //        productId = value;
-    //        OnPropertyChanged(nameof(ProductId));
-    //    }
-    //}
-
-    // Source Generators
-
-    // backfield
-    // Auto
     [ObservableProperty]
     int productId;
-     
 
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    partial void OnProductIdChanged(int value)
     {
-        if (query.ContainsKey("id"))
-        {
-            productId = Convert.ToInt32(query["id"]);
-
-            LoadData(productId);
-        }
+        LoadData(value);
     }
-
+   
     private void LoadData(int id)
     {
         Product = productService.Get(id);

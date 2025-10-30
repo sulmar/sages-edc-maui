@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Models;
 using MyMauiApp.Abstractions;
-using MyMauiApp.Commands;
+using MyMauiApp.Commands;   
 
 namespace MyMauiApp.PageModels;
 
@@ -17,7 +17,7 @@ public partial class ProductsPageModel : BasePageModel
 
     [RelayCommand]
     private async Task NavigateToProduct(Product product)
-    {
+    {        
         await Shell.Current.GoToAsync($"product?id={product.Id}"); // Query
     }
 

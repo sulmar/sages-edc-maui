@@ -24,7 +24,7 @@ Do rozpoczęcia tego kursu potrzebujesz następujących rzeczy:
 Projekt jest zorganizowany w dwóch głównych sekcjach:
 
 ```
-vavatech-edc-maui/
+sages-edc-maui/
 ├── docs/                          # Dokumentacja szkolenia
 │   ├── drafts.bmpr                # Diagramy i schematy
 │   └── maui.pdf                   # Materiały szkoleniowe
